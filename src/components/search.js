@@ -1,5 +1,5 @@
 angular.module('video-player')
 
-.component('search', {
+  .component('search', {
   // TODO
-});
+  });
