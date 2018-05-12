@@ -3,8 +3,9 @@ angular.module('video-player')
   .component('app', {
     controller: function() {
       this.videos = exampleVideoData;
-      this.current = exampleVideoData[0];
-      this.handleClick = function() { console.log('yo'); };
+      this.currentVideo = exampleVideoData[0];
+      this.selectVideo = function(video) { this.currentVideo = video; };
+      this.selectVideo = this.selectVideo.bind(this);
     },
   
     templateUrl: 'src/templates/app.html'
