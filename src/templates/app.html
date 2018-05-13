@@ -1,15 +1,16 @@
 <div id="app container">
-  <nav class="navbar">
+<!--   <div class="tester" ng-click="$ctrl.search()">Emily</div>
+ -->  <nav class="navbar">
     <div class="col-md-6 col-md-offset-3">
-      <search></search>
+      <search result="$ctrl.result" debouncer="$ctrl.debouncer"></search>
     </div>
   </nav>
   <div class="row">
     <div class="col-md-7">
-      <video-player current-video="$ctrl.currentVideo"></video-player>
+      <video-player video="$ctrl.currentVideo"></video-player>
     </div>
     <div class="col-md-5">
-      <video-list videos="$ctrl.videos" select-video="$ctrl.selectVideo"></video-list>
+      <video-list videos="$ctrl.videos" on-click="$ctrl.onClick"></video-list>
     </div>
   <div>
 </div>

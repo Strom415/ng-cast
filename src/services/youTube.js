@@ -1,23 +1,22 @@
 angular.module('video-player')
   .service('youTube', function($http) {
-    this.search = function(params, callback) {
+    this.search = function(data, callback) {
       return $http({
         method: 'GET',
         url: 'https://www.googleapis.com/youtube/v3/search',
-        data: {
-          q: params.query,
-          max: params.maxResults,
-          key: params.key,
+        params: {
+          q: data.query,
+          max: data.maxResults,
+          key: data.key,
           type: 'video',
           videoEmbeddable: 'true',
           part: 'snippet'  
         }
-        
       }).then(function successCallback(response) {
         console.log('Data fetched!');
-        callback(this.data);
+        callback(response.data.items);
       }, 
-      function errorCallback(response){
+      function errorCallback(){
         console.log('Stop trying to make fetch happen!');
       });
     };
